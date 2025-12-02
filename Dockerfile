@@ -1,6 +1,6 @@
 # /app /usr /lib
 # FROM --platform=linux/amd64 node:20-alpine3.21
-FROM node:20-alpine3.21
+FROM node:20-alpine3.21 as deps
 
 #cd app
 WORKDIR /app
@@ -10,6 +10,8 @@ COPY package.json ./
 
 # intalar las dependencias
 RUN npm install
+
+FROM node:20-alpine3.21 as builder
 
 #Dest /app
 COPY . .
