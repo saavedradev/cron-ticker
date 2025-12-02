@@ -32,3 +32,6 @@ docker buildx ls
 ## generar builder con diferentes arquitecturas
 docker buildx build --platform linux/amd64,linux/arm64 -t saavedradev/cron-ticker:perro --push .
 
+## inpeccionar imagen generada con builx
+docker buildx imagetools inspect saavedradev/cron-ticker:perro
+
